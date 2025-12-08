@@ -31,10 +31,18 @@ async def get_user_lang(state: FSMContext) -> str:
 
 def validate_phone(phone: str) -> bool:
     """Validate phone number format"""
-    # Remove spaces, dashes, parentheses
-    cleaned = re.sub(r"[\s\-\(\)]", "", phone)
-    # Check if it's a valid phone number (Russian format or international)
-    return bool(re.match(r"^(\+7|8|7)?\d{10}$", cleaned))
+    # Remove spaces, dashes, parentheses, dots
+    cleaned = re.sub(r"[\s\-\(\)\.]", "", phone)
+    # French format: +33XXXXXXXXX or 0XXXXXXXXX (9-10 digits after prefix)
+    # International format: +XXXXXXXXXXX (10-15 digits)
+    if re.match(r"^(\+33|0033|0)\d{9}$", cleaned):
+        return True
+    if re.match(r"^\+\d{10,15}$", cleaned):
+        return True
+    # Simple 10 digit number
+    if re.match(r"^\d{10}$", cleaned):
+        return True
+    return False
 
 
 def format_order_summary(
@@ -182,12 +190,9 @@ async def process_address(message: Message, state: FSMContext):
         await message.answer(get_text("address_too_short", lang))
         return
 
-    # Calculate delivery fee
+    # Delivery fee is always charged for delivery orders
     cart = await CartService.get_cart(state, message.from_user.id)
-    if cart.total >= settings.free_delivery_threshold:
-        delivery_fee = 0
-    else:
-        delivery_fee = settings.delivery_fee
+    delivery_fee = settings.delivery_fee
 
     await state.update_data(delivery_address=address, delivery_fee=delivery_fee)
     await state.set_state(OrderState.waiting_for_time)

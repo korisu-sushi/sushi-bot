@@ -26,7 +26,7 @@ class MenuItem(BaseModel):
     id: str
     name: LocalizedString
     description: LocalizedString
-    price: int
+    price: float
     weight: str
     pieces: Optional[int] = None
     available: bool = True
