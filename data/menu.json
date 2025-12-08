@@ -1,0 +1,349 @@
+{
+  "version": "1.0",
+  "currency": "€",
+  "restaurant": {
+    "name": {
+      "en": "Sushi Master",
+      "fr": "Sushi Master",
+      "uk": "Sushi Master",
+      "ru": "Sushi Master"
+    },
+    "phone": "+33 1 23 45 67 89",
+    "working_hours": "10:00 - 22:00",
+    "min_order_amount": 15
+  },
+  "categories": [
+    {
+      "id": "rolls",
+      "name": {
+        "en": "Rolls",
+        "fr": "Rouleaux",
+        "uk": "Роли",
+        "ru": "Роллы"
+      },
+      "emoji": "🍣",
+      "sort_order": 1,
+      "items": [
+        {
+          "id": "roll_001",
+          "name": {
+            "en": "Philadelphia Roll",
+            "fr": "Rouleau Philadelphie",
+            "uk": "Рол Філадельфія",
+            "ru": "Филадельфия"
+          },
+          "description": {
+            "en": "Salmon, cream cheese, cucumber, avocado",
+            "fr": "Saumon, fromage à la crème, concombre, avocat",
+            "uk": "Лосось, вершковий сир, огірок, авокадо",
+            "ru": "Лосось, сливочный сыр, огурец, авокадо"
+          },
+          "price": 12,
+          "weight": "250g",
+          "pieces": 8,
+          "available": true,
+          "popular": true
+        },
+        {
+          "id": "roll_002",
+          "name": {
+            "en": "California Roll",
+            "fr": "Rouleau Californie",
+            "uk": "Рол Каліфорнія",
+            "ru": "Калифорния"
+          },
+          "description": {
+            "en": "Crab meat, avocado, cucumber, tobiko",
+            "fr": "Chair de crabe, avocat, concombre, tobiko",
+            "uk": "Крабове м'ясо, авокадо, огірок, тобіко",
+            "ru": "Крабовое мясо, авокадо, огурец, тобико"
+          },
+          "price": 11,
+          "weight": "230g",
+          "pieces": 8,
+          "available": true,
+          "popular": true
+        },
+        {
+          "id": "roll_003",
+          "name": {
+            "en": "Dragon Roll",
+            "fr": "Rouleau Dragon",
+            "uk": "Рол Дракон",
+            "ru": "Дракон"
+          },
+          "description": {
+            "en": "Eel, avocado, cucumber, unagi sauce",
+            "fr": "Anguille, avocat, concombre, sauce unagi",
+            "uk": "Вугор, авокадо, огірок, соус унагі",
+            "ru": "Угорь, авокадо, огурец, унаги соус"
+          },
+          "price": 14,
+          "weight": "280g",
+          "pieces": 8,
+          "available": true,
+          "popular": false
+        },
+        {
+          "id": "roll_004",
+          "name": {
+            "en": "Spicy Salmon Roll",
+            "fr": "Rouleau Saumon Épicé",
+            "uk": "Рол Спайсі Лосось",
+            "ru": "Спайси лосось"
+          },
+          "description": {
+            "en": "Salmon, spicy sauce, green onion",
+            "fr": "Saumon, sauce épicée, oignon vert",
+            "uk": "Лосось, гострий соус, зелена цибуля",
+            "ru": "Лосось, спайси соус, зеленый лук"
+          },
+          "price": 10,
+          "weight": "220g",
+          "pieces": 8,
+          "available": true,
+          "popular": false
+        }
+      ]
+    },
+    {
+      "id": "sets",
+      "name": {
+        "en": "Sets",
+        "fr": "Plateaux",
+        "uk": "Сети",
+        "ru": "Сеты"
+      },
+      "emoji": "🍱",
+      "sort_order": 2,
+      "items": [
+        {
+          "id": "set_001",
+          "name": {
+            "en": "Tokyo Set",
+            "fr": "Plateau Tokyo",
+            "uk": "Сет Токіо",
+            "ru": "Сет Токио"
+          },
+          "description": {
+            "en": "Philadelphia, California, Spicy Salmon (24 pcs)",
+            "fr": "Philadelphie, Californie, Saumon Épicé (24 pcs)",
+            "uk": "Філадельфія, Каліфорнія, Спайсі Лосось (24 шт)",
+            "ru": "Филадельфия, Калифорния, Спайси лосось (24 шт)"
+          },
+          "price": 29,
+          "weight": "700g",
+          "pieces": 24,
+          "available": true,
+          "popular": true
+        },
+        {
+          "id": "set_002",
+          "name": {
+            "en": "Premium Set",
+            "fr": "Plateau Premium",
+            "uk": "Сет Преміум",
+            "ru": "Сет Премиум"
+          },
+          "description": {
+            "en": "Philadelphia, Dragon, assorted sushi (32 pcs)",
+            "fr": "Philadelphie, Dragon, assortiment de sushi (32 pcs)",
+            "uk": "Філадельфія, Дракон, суші асорті (32 шт)",
+            "ru": "Филадельфия, Дракон, суши ассорти (32 шт)"
+          },
+          "price": 45,
+          "weight": "950g",
+          "pieces": 32,
+          "available": true,
+          "popular": false
+        },
+        {
+          "id": "set_003",
+          "name": {
+            "en": "Set for Two",
+            "fr": "Plateau pour Deux",
+            "uk": "Сет на двох",
+            "ru": "Сет для двоих"
+          },
+          "description": {
+            "en": "Mix of popular rolls (40 pcs)",
+            "fr": "Assortiment de rouleaux populaires (40 pcs)",
+            "uk": "Мікс популярних ролів (40 шт)",
+            "ru": "Микс популярных роллов (40 шт)"
+          },
+          "price": 55,
+          "weight": "1200g",
+          "pieces": 40,
+          "available": true,
+          "popular": true
+        }
+      ]
+    },
+    {
+      "id": "sushi",
+      "name": {
+        "en": "Sushi",
+        "fr": "Sushi",
+        "uk": "Суші",
+        "ru": "Суши"
+      },
+      "emoji": "🍙",
+      "sort_order": 3,
+      "items": [
+        {
+          "id": "sushi_001",
+          "name": {
+            "en": "Salmon Sushi",
+            "fr": "Sushi Saumon",
+            "uk": "Суші з лососем",
+            "ru": "Суши с лососем"
+          },
+          "description": {
+            "en": "Nigiri sushi with salmon",
+            "fr": "Nigiri sushi au saumon",
+            "uk": "Нігірі суші з лососем",
+            "ru": "Нигири суши с лососем"
+          },
+          "price": 4,
+          "weight": "35g",
+          "pieces": 1,
+          "available": true,
+          "popular": true
+        },
+        {
+          "id": "sushi_002",
+          "name": {
+            "en": "Tuna Sushi",
+            "fr": "Sushi Thon",
+            "uk": "Суші з тунцем",
+            "ru": "Суши с тунцом"
+          },
+          "description": {
+            "en": "Nigiri sushi with tuna",
+            "fr": "Nigiri sushi au thon",
+            "uk": "Нігірі суші з тунцем",
+            "ru": "Нигири суши с тунцом"
+          },
+          "price": 5,
+          "weight": "35g",
+          "pieces": 1,
+          "available": true,
+          "popular": false
+        },
+        {
+          "id": "sushi_003",
+          "name": {
+            "en": "Eel Sushi",
+            "fr": "Sushi Anguille",
+            "uk": "Суші з вугрем",
+            "ru": "Суши с угрем"
+          },
+          "description": {
+            "en": "Nigiri sushi with eel",
+            "fr": "Nigiri sushi à l'anguille",
+            "uk": "Нігірі суші з вугрем",
+            "ru": "Нигири суши с угрем"
+          },
+          "price": 5,
+          "weight": "38g",
+          "pieces": 1,
+          "available": true,
+          "popular": false
+        },
+        {
+          "id": "sushi_004",
+          "name": {
+            "en": "Shrimp Sushi",
+            "fr": "Sushi Crevette",
+            "uk": "Суші з креветкою",
+            "ru": "Суши с креветкой"
+          },
+          "description": {
+            "en": "Nigiri sushi with shrimp",
+            "fr": "Nigiri sushi à la crevette",
+            "uk": "Нігірі суші з креветкою",
+            "ru": "Нигири суши с креветкой"
+          },
+          "price": 4,
+          "weight": "36g",
+          "pieces": 1,
+          "available": true,
+          "popular": true
+        }
+      ]
+    },
+    {
+      "id": "drinks",
+      "name": {
+        "en": "Drinks",
+        "fr": "Boissons",
+        "uk": "Напої",
+        "ru": "Напитки"
+      },
+      "emoji": "🥤",
+      "sort_order": 4,
+      "items": [
+        {
+          "id": "drink_001",
+          "name": {
+            "en": "Green Tea",
+            "fr": "Thé Vert",
+            "uk": "Зелений чай",
+            "ru": "Зеленый чай"
+          },
+          "description": {
+            "en": "Traditional Japanese green tea",
+            "fr": "Thé vert japonais traditionnel",
+            "uk": "Традиційний японський зелений чай",
+            "ru": "Традиционный японский зеленый чай"
+          },
+          "price": 3,
+          "weight": "400ml",
+          "pieces": null,
+          "available": true,
+          "popular": true
+        },
+        {
+          "id": "drink_002",
+          "name": {
+            "en": "Coca-Cola",
+            "fr": "Coca-Cola",
+            "uk": "Кока-Кола",
+            "ru": "Кока-Кола"
+          },
+          "description": {
+            "en": "Coca-Cola 0.5L",
+            "fr": "Coca-Cola 0.5L",
+            "uk": "Coca-Cola 0.5л",
+            "ru": "Coca-Cola 0.5л"
+          },
+          "price": 3,
+          "weight": "500ml",
+          "pieces": null,
+          "available": true,
+          "popular": false
+        },
+        {
+          "id": "drink_003",
+          "name": {
+            "en": "Lemonade",
+            "fr": "Limonade",
+            "uk": "Лимонад",
+            "ru": "Лимонад"
+          },
+          "description": {
+            "en": "Homemade lemonade",
+            "fr": "Limonade maison",
+            "uk": "Домашній лимонад",
+            "ru": "Домашний лимонад"
+          },
+          "price": 4,
+          "weight": "400ml",
+          "pieces": null,
+          "available": true,
+          "popular": false
+        }
+      ]
+    }
+  ]
+}

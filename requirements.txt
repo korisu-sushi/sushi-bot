@@ -1,0 +1,16 @@
+# Core
+aiogram==3.15.0
+pydantic>=2.4.1,<2.10
+pydantic-settings>=2.0.0
+
+# Google Sheets
+gspread==6.0.*
+gspread-asyncio==2.0.0
+google-auth>=2.0.0
+
+# Utilities
+python-dotenv==1.0.1
+aiofiles==24.1.0
+
+# Logging
+loguru==0.7.2
