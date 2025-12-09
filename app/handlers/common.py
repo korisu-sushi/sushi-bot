@@ -3,7 +3,7 @@ from aiogram.types import Message, CallbackQuery
 from aiogram.filters import CommandStart, Command
 from aiogram.fsm.context import FSMContext
 
-from app.keyboards.menu_kb import get_main_menu_keyboard, get_language_keyboard
+from app.keyboards.menu_kb import get_main_menu_keyboard, get_language_keyboard, get_contacts_keyboard
 from app.services.menu_service import MenuService
 from app.i18n import get_text, DEFAULT_LANGUAGE
 
@@ -142,14 +142,22 @@ async def show_contacts(
         "contacts",
         lang,
         name=restaurant.get_name(lang),
+        address=restaurant.address,
         phone=restaurant.phone,
+        instagram=restaurant.instagram,
         hours=restaurant.get_working_hours(lang),
         min_order=restaurant.min_order_amount,
         currency=menu.currency,
     )
 
     await callback.message.edit_text(
-        contacts_text, reply_markup=get_main_menu_keyboard(lang)
+        contacts_text,
+        reply_markup=get_contacts_keyboard(
+            phone=restaurant.phone,
+            instagram=restaurant.instagram,
+            address=restaurant.address,
+            lang=lang,
+        ),
     )
     await callback.answer()
 

@@ -12,6 +12,55 @@ from app.filters.callback_data import (
 from app.i18n import get_text, LANGUAGES
 
 
+from urllib.parse import quote
+
+
+def get_contacts_keyboard(
+    phone: str,
+    instagram: str,
+    address: str,
+    lang: str = "en"
+) -> InlineKeyboardMarkup:
+    """Contacts keyboard with URL buttons"""
+    builder = InlineKeyboardBuilder()
+
+    # Phone button (tel: link)
+    phone_clean = phone.replace(" ", "")
+    builder.row(
+        InlineKeyboardButton(
+            text="☎️ " + get_text("btn_call", lang),
+            url=f"tel:{phone_clean}",
+        )
+    )
+
+    # Instagram button
+    builder.row(
+        InlineKeyboardButton(
+            text="📸 Instagram",
+            url=f"https://instagram.com/{instagram}",
+        )
+    )
+
+    # Google Maps button
+    address_encoded = quote(address)
+    builder.row(
+        InlineKeyboardButton(
+            text="📍 Google Maps",
+            url=f"https://www.google.com/maps/search/?api=1&query={address_encoded}",
+        )
+    )
+
+    # Back to main menu
+    builder.row(
+        InlineKeyboardButton(
+            text=f"◀️ {get_text('btn_main_menu', lang)}",
+            callback_data="main_menu",
+        )
+    )
+
+    return builder.as_markup()
+
+
 def get_language_keyboard() -> InlineKeyboardMarkup:
     """Language selection keyboard"""
     builder = InlineKeyboardBuilder()

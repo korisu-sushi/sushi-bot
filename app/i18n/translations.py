@@ -53,6 +53,12 @@ TEXTS = {
         "uk": "Кошик",
         "ru": "Корзина",
     },
+    "btn_call": {
+        "en": "Call",
+        "fr": "Appeler",
+        "uk": "Зателефонувати",
+        "ru": "Позвонить",
+    },
     "btn_contacts": {
         "en": "Contacts",
         "fr": "Contacts",
@@ -596,10 +602,10 @@ TEXTS = {
 
     # ==================== CONTACTS ====================
     "contacts": {
-        "en": "📞 <b>Contacts {name}</b>\n\n☎️ Phone: {phone}\n🕐 Hours: {hours}\n\nMinimum order: {min_order}{currency}",
-        "fr": "📞 <b>Contacts {name}</b>\n\n☎️ Téléphone: {phone}\n🕐 Horaires: {hours}\n\nCommande minimum: {min_order}{currency}",
-        "uk": "📞 <b>Контакти {name}</b>\n\n☎️ Телефон: {phone}\n🕐 Години роботи: {hours}\n\nМінімальне замовлення: {min_order}{currency}",
-        "ru": "📞 <b>Контакты {name}</b>\n\n☎️ Телефон: {phone}\n🕐 Время работы: {hours}\n\nМинимальная сумма заказа: {min_order}{currency}",
+        "en": "📞 <b>Contacts {name}</b>\n\n📍 Address: {address}\n☎️ Phone: {phone}\n📸 Instagram: @{instagram}\n🕐 Hours: {hours}\n\nMinimum order: {min_order}{currency}",
+        "fr": "📞 <b>Contacts {name}</b>\n\n📍 Adresse: {address}\n☎️ Téléphone: {phone}\n📸 Instagram: @{instagram}\n🕐 Horaires: {hours}\n\nCommande minimum: {min_order}{currency}",
+        "uk": "📞 <b>Контакти {name}</b>\n\n📍 Адреса: {address}\n☎️ Телефон: {phone}\n📸 Instagram: @{instagram}\n🕐 Години роботи: {hours}\n\nМінімальне замовлення: {min_order}{currency}",
+        "ru": "📞 <b>Контакты {name}</b>\n\n📍 Адрес: {address}\n☎️ Телефон: {phone}\n📸 Instagram: @{instagram}\n🕐 Время работы: {hours}\n\nМинимальная сумма заказа: {min_order}{currency}",
     },
 
     # ==================== ERRORS ====================

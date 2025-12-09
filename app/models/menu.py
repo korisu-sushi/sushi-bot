@@ -64,6 +64,8 @@ class RestaurantInfo(BaseModel):
 
     name: LocalizedString
     phone: str
+    address: str = ""
+    instagram: str = ""
     working_hours: LocalizedString
     min_order_amount: int
 
