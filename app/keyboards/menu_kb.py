@@ -24,15 +24,6 @@ def get_contacts_keyboard(
     """Contacts keyboard with URL buttons"""
     builder = InlineKeyboardBuilder()
 
-    # Phone button (tel: link)
-    phone_clean = phone.replace(" ", "")
-    builder.row(
-        InlineKeyboardButton(
-            text="☎️ " + get_text("btn_call", lang),
-            url=f"tel:{phone_clean}",
-        )
-    )
-
     # Instagram button
     builder.row(
         InlineKeyboardButton(
