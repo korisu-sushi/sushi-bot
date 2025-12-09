@@ -104,7 +104,7 @@ def get_items_keyboard(
     category: Category,
     cart: Cart | None = None,
     lang: str = "en",
-    currency: str = "₽",
+    currency: str = "€",
 ) -> InlineKeyboardMarkup:
     """Items list in category"""
     builder = InlineKeyboardBuilder()
@@ -146,7 +146,7 @@ def get_item_detail_keyboard(
     quantity: int = 1,
     category_id: str = "",
     lang: str = "en",
-    currency: str = "₽",
+    currency: str = "€",
 ) -> InlineKeyboardMarkup:
     """Item detail with quantity selector"""
     builder = InlineKeyboardBuilder()

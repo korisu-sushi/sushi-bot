@@ -55,7 +55,7 @@ def format_order_summary(
     comment: str | None,
     delivery_fee: int,
     lang: str = "en",
-    currency: str = "₽",
+    currency: str = "€",
 ) -> str:
     """Format order for confirmation"""
     lines = [
@@ -213,13 +213,15 @@ async def process_delivery_time(callback: CallbackQuery, state: FSMContext):
     lang = await get_user_lang(state)
     time_choice = callback.data.split(":")[1]
 
-    time_map = {
-        "asap": get_text("time_asap", lang),
-        "1h": get_text("time_1h", lang),
-        "2h": get_text("time_2h", lang),
-    }
+    if time_choice == "custom":
+        # Ask user to enter custom date/time
+        await state.set_state(OrderState.waiting_for_custom_time)
+        await callback.message.edit_text(get_text("enter_custom_time", lang))
+        await callback.answer()
+        return
 
-    delivery_time = time_map.get(time_choice, get_text("time_asap", lang))
+    # ASAP option
+    delivery_time = get_text("time_asap", lang)
 
     await state.update_data(delivery_time=delivery_time)
     await state.set_state(OrderState.waiting_for_comment)
@@ -229,6 +231,25 @@ async def process_delivery_time(callback: CallbackQuery, state: FSMContext):
         reply_markup=get_skip_comment_keyboard(lang),
     )
     await callback.answer()
+
+
+@router.message(OrderState.waiting_for_custom_time)
+async def process_custom_time(message: Message, state: FSMContext):
+    """Process custom delivery time input"""
+    lang = await get_user_lang(state)
+    custom_time = message.text.strip()
+
+    if len(custom_time) < 3:
+        await message.answer(get_text("enter_custom_time", lang))
+        return
+
+    await state.update_data(delivery_time=custom_time)
+    await state.set_state(OrderState.waiting_for_comment)
+
+    await message.answer(
+        get_text("enter_comment", lang),
+        reply_markup=get_skip_comment_keyboard(lang),
+    )
 
 
 @router.callback_query(F.data == "skip_comment")

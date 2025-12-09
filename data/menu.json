@@ -8,8 +8,13 @@
       "uk": "Korisu Sushi",
       "ru": "Korisu Sushi"
     },
-    "phone": "+33 1 23 45 67 89",
-    "working_hours": "10:00 - 22:00",
+    "phone": "+33 7 59 69 66 99",
+    "working_hours": {
+      "en": "Thursday - Sunday 13:00 - 19:00",
+      "fr": "Jeudi - Dimanche 13:00 - 19:00",
+      "uk": "Четвер - Неділя 13:00 - 19:00",
+      "ru": "Четверг - Воскресенье 13:00 - 19:00"
+    },
     "min_order_amount": 15
   },
   "categories": [
@@ -227,16 +232,16 @@
         {
           "id": "set_011",
           "name": {
-            "en": "Hungry Set",
-            "fr": "Plateau Affamé",
-            "uk": "Сет Голодний",
-            "ru": "Сет Голоден"
+            "en": "Golden",
+            "fr": "Golden",
+            "uk": "Golden",
+            "ru": "Golden"
           },
           "description": {
-            "en": "Large set for big appetite",
-            "fr": "Grand plateau pour gros appétit",
-            "uk": "Великий сет для великого апетиту",
-            "ru": "Большой сет для большого аппетита"
+            "en": "Premium golden set",
+            "fr": "Plateau golden premium",
+            "uk": "Преміум сет Golden",
+            "ru": "Премиум сет Golden"
           },
           "price": 59,
           "weight": "",

@@ -45,7 +45,7 @@ async def set_language(
         lang,
         name=restaurant.get_name(lang),
         phone=restaurant.phone,
-        hours=restaurant.working_hours,
+        hours=restaurant.get_working_hours(lang),
     )
 
     await callback.message.edit_text(
@@ -143,7 +143,7 @@ async def show_contacts(
         lang,
         name=restaurant.get_name(lang),
         phone=restaurant.phone,
-        hours=restaurant.working_hours,
+        hours=restaurant.get_working_hours(lang),
         min_order=restaurant.min_order_amount,
         currency=menu.currency,
     )

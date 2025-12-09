@@ -43,10 +43,10 @@ class Settings(BaseSettings):
         "", validation_alias="ORDERS_CHANNEL_ID"
     )
 
-    # Business settings
-    min_order_amount: int = 500
-    delivery_fee: int = 200
-    free_delivery_threshold: int = 1500
+    # Business settings (in euros)
+    min_order_amount: int = 15
+    delivery_fee: int = 15
+    free_delivery_threshold: int = 75
 
 
 # Singleton instance

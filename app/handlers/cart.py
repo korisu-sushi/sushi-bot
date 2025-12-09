@@ -17,7 +17,7 @@ async def get_user_lang(state: FSMContext) -> str:
     return data.get("lang", DEFAULT_LANGUAGE)
 
 
-def format_cart_text(cart, lang: str = "en", currency: str = "₽") -> str:
+def format_cart_text(cart, lang: str = "en", currency: str = "€") -> str:
     """Format cart for display"""
     if cart.is_empty:
         return get_text("cart_empty", lang)

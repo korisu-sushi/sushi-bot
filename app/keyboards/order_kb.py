@@ -1,8 +1,27 @@
+from datetime import datetime
+import pytz
+
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 
 from app.filters.callback_data import OrderCallback
 from app.i18n import get_text
+
+# Paris timezone for France
+PARIS_TZ = pytz.timezone("Europe/Paris")
+
+
+def is_within_working_hours() -> bool:
+    """Check if current time is within working hours (Thu-Sun 13:00-19:00)"""
+    now = datetime.now(PARIS_TZ)
+    # weekday(): 0=Monday, 3=Thursday, 6=Sunday
+    # Working days: Thursday(3), Friday(4), Saturday(5), Sunday(6)
+    if now.weekday() not in [3, 4, 5, 6]:
+        return False
+    # Working hours: 13:00 - 19:00
+    if now.hour < 13 or now.hour >= 19:
+        return False
+    return True
 
 
 def get_delivery_type_keyboard(lang: str = "en") -> InlineKeyboardMarkup:
@@ -33,21 +52,21 @@ def get_delivery_time_keyboard(lang: str = "en") -> InlineKeyboardMarkup:
     """Delivery time selection"""
     builder = InlineKeyboardBuilder()
 
-    builder.row(
-        InlineKeyboardButton(
-            text=f"🚀 {get_text('btn_asap', lang)}",
-            callback_data="delivery_time:asap",
+    # ASAP button only available during working hours
+    if is_within_working_hours():
+        builder.row(
+            InlineKeyboardButton(
+                text=f"🚀 {get_text('btn_asap', lang)}",
+                callback_data="delivery_time:asap",
+            )
         )
-    )
+
+    # Custom date/time button always available
     builder.row(
         InlineKeyboardButton(
-            text=f"🕐 {get_text('btn_in_1_hour', lang)}",
-            callback_data="delivery_time:1h",
-        ),
-        InlineKeyboardButton(
-            text=f"🕑 {get_text('btn_in_2_hours', lang)}",
-            callback_data="delivery_time:2h",
-        ),
+            text=f"📅 {get_text('btn_custom_time', lang)}",
+            callback_data="delivery_time:custom",
+        )
     )
     builder.row(
         InlineKeyboardButton(

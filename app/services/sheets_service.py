@@ -113,7 +113,7 @@ class GoogleSheetsService:
 
             # Format items for storage
             items_str = "; ".join(
-                f"{item.name} x{item.quantity} ({item.subtotal}₽)"
+                f"{item.name} x{item.quantity} ({item.subtotal}€)"
                 for item in order.items
             )
 

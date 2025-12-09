@@ -64,12 +64,16 @@ class RestaurantInfo(BaseModel):
 
     name: LocalizedString
     phone: str
-    working_hours: str
+    working_hours: LocalizedString
     min_order_amount: int
 
     def get_name(self, lang: str = DEFAULT_LANG) -> str:
         """Get restaurant name in specified language"""
         return self.name.get(lang)
+
+    def get_working_hours(self, lang: str = DEFAULT_LANG) -> str:
+        """Get working hours in specified language"""
+        return self.working_hours.get(lang)
 
 
 class Menu(BaseModel):

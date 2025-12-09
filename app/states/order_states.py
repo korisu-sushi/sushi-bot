@@ -8,5 +8,6 @@ class OrderState(StatesGroup):
     waiting_for_phone = State()
     waiting_for_address = State()
     waiting_for_time = State()
+    waiting_for_custom_time = State()
     waiting_for_comment = State()
     confirmation = State()
