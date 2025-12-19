@@ -1,5 +1,6 @@
+import os
 from aiogram import Router, F
-from aiogram.types import CallbackQuery
+from aiogram.types import CallbackQuery, FSInputFile, InputMediaPhoto
 from aiogram.fsm.context import FSMContext
 
 from app.filters.callback_data import (
@@ -63,11 +64,14 @@ async def show_category_items(
     text = get_text(
         "category_title", lang, emoji=category.emoji, name=category.get_name(lang)
     )
+    keyboard = get_items_keyboard(category, cart, lang, menu.currency)
 
-    await callback.message.edit_text(
-        text,
-        reply_markup=get_items_keyboard(category, cart, lang, menu.currency),
-    )
+    # If current message is a photo, delete and send new text message
+    if callback.message.photo:
+        await callback.message.delete()
+        await callback.message.answer(text, reply_markup=keyboard)
+    else:
+        await callback.message.edit_text(text, reply_markup=keyboard)
     await callback.answer()
 
 
@@ -116,12 +120,25 @@ async def show_item_detail(
         popular=f"\n\n⭐ {get_text('popular_item', lang)}" if item.popular else "",
     )
 
-    await callback.message.edit_text(
-        text,
-        reply_markup=get_item_detail_keyboard(
-            item, quantity=1, category_id=category_id, lang=lang, currency=menu.currency
-        ),
+    keyboard = get_item_detail_keyboard(
+        item, quantity=1, category_id=category_id, lang=lang, currency=menu.currency
     )
+
+    # Check if item has image
+    if item.image and os.path.exists(item.image):
+        # Delete old message and send photo
+        await callback.message.delete()
+        photo = FSInputFile(item.image)
+        await callback.message.answer_photo(
+            photo=photo,
+            caption=text,
+            reply_markup=keyboard,
+        )
+    else:
+        await callback.message.edit_text(
+            text,
+            reply_markup=keyboard,
+        )
     await callback.answer()
 
 
@@ -168,12 +185,21 @@ async def change_quantity(
         popular=f"\n\n⭐ {get_text('popular_item', lang)}" if item.popular else "",
     )
 
-    await callback.message.edit_text(
-        text,
-        reply_markup=get_item_detail_keyboard(
-            item, quantity=new_qty, category_id=category_id, lang=lang, currency=menu.currency
-        ),
+    keyboard = get_item_detail_keyboard(
+        item, quantity=new_qty, category_id=category_id, lang=lang, currency=menu.currency
     )
+
+    # Check if current message is a photo (has caption)
+    if callback.message.photo:
+        await callback.message.edit_caption(
+            caption=text,
+            reply_markup=keyboard,
+        )
+    else:
+        await callback.message.edit_text(
+            text,
+            reply_markup=keyboard,
+        )
     await callback.answer()
 
 
@@ -214,13 +240,21 @@ async def add_to_cart(
         text = get_text(
             "category_title", lang, emoji=category.emoji, name=category.get_name(lang)
         )
-        await callback.message.edit_text(
-            text,
-            reply_markup=get_items_keyboard(category, cart, lang, menu.currency),
-        )
+        keyboard = get_items_keyboard(category, cart, lang, menu.currency)
+
+        # If current message is a photo, delete and send new text message
+        if callback.message.photo:
+            await callback.message.delete()
+            await callback.message.answer(text, reply_markup=keyboard)
+        else:
+            await callback.message.edit_text(text, reply_markup=keyboard)
     else:
         # Fallback to categories
-        await callback.message.edit_text(
-            get_text("menu_title", lang),
-            reply_markup=get_categories_keyboard(menu, lang),
-        )
+        text = get_text("menu_title", lang)
+        keyboard = get_categories_keyboard(menu, lang)
+
+        if callback.message.photo:
+            await callback.message.delete()
+            await callback.message.answer(text, reply_markup=keyboard)
+        else:
+            await callback.message.edit_text(text, reply_markup=keyboard)
