@@ -31,6 +31,7 @@ class MenuItem(BaseModel):
     pieces: Optional[int] = None
     available: bool = True
     popular: bool = False
+    image: Optional[str] = None
 
     def get_name(self, lang: str = DEFAULT_LANG) -> str:
         """Get item name in specified language"""

@@ -34,242 +34,254 @@
         {
           "id": "set_001",
           "name": {
-            "en": "Nigiri Set",
-            "fr": "Plateau Nigiri",
-            "uk": "Нігірі сет",
-            "ru": "Нигири сет"
+            "en": "NIGIRI",
+            "fr": "NIGIRI",
+            "uk": "NIGIRI",
+            "ru": "NIGIRI"
           },
           "description": {
-            "en": "Assorted nigiri sushi",
-            "fr": "Assortiment de nigiri sushi",
-            "uk": "Асорті нігірі суші",
-            "ru": "Ассорти нигири суши"
+            "en": "Saumon (Sake), Thon (Maguro), Anguille (Unagi), Crevette (Ebi), Saint-Jacques (Hotate), Tamago (omelette japonaise), Poulpe (Tako), Osminog (8 pcs)",
+            "fr": "Saumon (Sake), Thon (Maguro), Anguille (Unagi), Crevette (Ebi), Saint-Jacques (Hotate), Tamago (omelette japonaise), Poulpe (Tako), Osminog (8 pcs)",
+            "uk": "Лосось (Саке), Тунець (Магуро), Вугор (Унагі), Креветка (Ебі), Гребінець (Хотате), Тамаго (японський омлет), Восьминіг (Тако), Осьминог (8 шт)",
+            "ru": "Лосось (Саке), Тунец (Магуро), Угорь (Унаги), Креветка (Эби), Гребешок (Хотате), Тамаго (японский омлет), Осьминог (Тако), Осьминог (8 шт)"
           },
           "price": 18.5,
           "weight": "",
-          "pieces": null,
+          "pieces": 8,
           "available": true,
-          "popular": true
+          "popular": true,
+          "image": "data/images/nigiri.jpeg"
         },
         {
           "id": "set_002",
           "name": {
-            "en": "Gunkan Set",
-            "fr": "Plateau Gunkan",
-            "uk": "Гункан сет",
-            "ru": "Гункан сет"
+            "en": "GUNKAN",
+            "fr": "GUNKAN",
+            "uk": "GUNKAN",
+            "ru": "GUNKAN"
           },
           "description": {
-            "en": "Assorted gunkan sushi",
-            "fr": "Assortiment de gunkan sushi",
-            "uk": "Асорті гункан суші",
-            "ru": "Ассорти гункан суши"
+            "en": "Gunkan saumon, Gunkan moules, Gunkan crevettes spicy, Gunkan caviar tobiko+avocat, Gunkan tar-tar+pétoncle, Gunkan avocat (6 pcs)",
+            "fr": "Gunkan saumon, Gunkan moules, Gunkan crevettes spicy, Gunkan caviar tobiko+avocat, Gunkan tar-tar+pétoncle, Gunkan avocat (6 pcs)",
+            "uk": "Гункан лосось, Гункан мідії, Гункан креветки спайсі, Гункан ікра тобіко+авокадо, Гункан тар-тар+гребінець, Гункан авокадо (6 шт)",
+            "ru": "Гункан лосось, Гункан мидии, Гункан креветки спайси, Гункан икра тобико+авокадо, Гункан тар-тар+гребешок, Гункан авокадо (6 шт)"
           },
           "price": 15,
           "weight": "",
-          "pieces": null,
+          "pieces": 6,
           "available": true,
-          "popular": false
+          "popular": false,
+          "image": "data/images/gunkan.jpeg"
         },
         {
           "id": "set_003",
           "name": {
-            "en": "Gunkan Premium",
-            "fr": "Gunkan Premium",
-            "uk": "Гункан преміум",
-            "ru": "Гункан премиум"
+            "en": "GUNKAN (premium)",
+            "fr": "GUNKAN (premium)",
+            "uk": "GUNKAN (premium)",
+            "ru": "GUNKAN (premium)"
           },
           "description": {
-            "en": "Premium gunkan selection",
-            "fr": "Sélection gunkan premium",
-            "uk": "Преміум гункан добірка",
-            "ru": "Премиум гункан подборка"
+            "en": "Tobiko noir, Caviar rouge, Saint-Jacques spicy, Crabe des neiges, Saumon spicy, Thon spicy, Gunkan chuka, Anguille sauce unagi (8 pcs)",
+            "fr": "Tobiko noir, Caviar rouge, Saint-Jacques spicy, Crabe des neiges, Saumon spicy, Thon spicy, Gunkan chuka, Anguille sauce unagi (8 pcs)",
+            "uk": "Тобіко чорна, Червона ікра, Сен-Жак спайсі, Сніговий краб, Лосось спайсі, Тунець спайсі, Гункан чука, Вугор з соусом унагі (8 шт)",
+            "ru": "Тобико черная, Красная икра, Сен-Жак спайси, Снежный краб, Лосось спайси, Тунец спайси, Гункан чука, Угорь с соусом унаги (8 шт)"
           },
           "price": 18,
           "weight": "",
-          "pieces": null,
+          "pieces": 8,
           "available": true,
-          "popular": false
+          "popular": false,
+          "image": "data/images/gunkan_premium.jpeg"
         },
         {
           "id": "set_004",
           "name": {
-            "en": "Maki Hit",
-            "fr": "Maki Hit",
-            "uk": "Макі хіт",
-            "ru": "Маки хит"
+            "en": "MAKI",
+            "fr": "MAKI",
+            "uk": "MAKI",
+            "ru": "MAKI"
           },
           "description": {
-            "en": "Best selling maki rolls",
-            "fr": "Nos maki les plus populaires",
-            "uk": "Найпопулярніші макі роли",
-            "ru": "Самые популярные маки роллы"
+            "en": "Saumon Maki 8 pcs, Avocat Maki 8 pcs, Coquelicots de crabe 8 pcs, Concombre Maki 8 pcs (32 pcs total)",
+            "fr": "Saumon Maki 8 pcs, Avocat Maki 8 pcs, Coquelicots de crabe 8 pcs, Concombre Maki 8 pcs (32 pcs au total)",
+            "uk": "Макі лосось 8 шт, Макі авокадо 8 шт, Крабові палички 8 шт, Макі огірок 8 шт (32 шт всього)",
+            "ru": "Маки лосось 8 шт, Маки авокадо 8 шт, Крабовые палочки 8 шт, Маки огурец 8 шт (32 шт всего)"
           },
           "price": 31,
           "weight": "",
-          "pieces": null,
+          "pieces": 32,
           "available": true,
-          "popular": true
+          "popular": true,
+          "image": "data/images/maki.jpeg"
         },
         {
           "id": "set_005",
           "name": {
-            "en": "Vegan Maki",
-            "fr": "Maki Végétalien",
-            "uk": "Веган макі",
-            "ru": "Веган маки"
+            "en": "MAKI (vegan)",
+            "fr": "MAKI (vegan)",
+            "uk": "MAKI (vegan)",
+            "ru": "MAKI (vegan)"
           },
           "description": {
-            "en": "Vegan maki rolls selection",
-            "fr": "Sélection de maki végétaliens",
-            "uk": "Добірка веганських макі ролів",
-            "ru": "Подборка веганских маки роллов"
+            "en": "Avocat Maki 8 pcs, Concombre Maki 8 pcs, Mango Maki 8 pcs (24 pcs total)",
+            "fr": "Avocat Maki 8 pcs, Concombre Maki 8 pcs, Mango Maki 8 pcs (24 pcs au total)",
+            "uk": "Макі авокадо 8 шт, Макі огірок 8 шт, Макі манго 8 шт (24 шт всього)",
+            "ru": "Маки авокадо 8 шт, Маки огурец 8 шт, Маки манго 8 шт (24 шт всего)"
           },
           "price": 19,
           "weight": "",
-          "pieces": null,
+          "pieces": 24,
           "available": true,
-          "popular": false
+          "popular": false,
+          "image": "data/images/maki_vegan.jpeg"
         },
         {
           "id": "set_006",
           "name": {
-            "en": "Philadelphia Set",
-            "fr": "Plateau Philadelphia",
-            "uk": "Сет Філадельфія",
-            "ru": "Сет Филадельфия"
+            "en": "PHILADELPHIA",
+            "fr": "PHILADELPHIA",
+            "uk": "PHILADELPHIA",
+            "ru": "PHILADELPHIA"
           },
           "description": {
-            "en": "Philadelphia rolls selection",
-            "fr": "Sélection de rouleaux Philadelphia",
-            "uk": "Добірка ролів Філадельфія",
-            "ru": "Подборка роллов Филадельфия"
+            "en": "Philadelphia saumon et caviar rouge 8 pcs, Philadelphia anguille et copeaux d'anguille 8 pcs, Philadelphia crevette tigrée et avocat 8 pcs (24 pcs total)",
+            "fr": "Philadelphia saumon et caviar rouge 8 pcs, Philadelphia anguille et copeaux d'anguille 8 pcs, Philadelphia crevette tigrée et avocat 8 pcs (24 pcs au total)",
+            "uk": "Філадельфія лосось з червоною ікрою 8 шт, Філадельфія вугор зі стружкою вугра 8 шт, Філадельфія тигрова креветка з авокадо 8 шт (24 шт всього)",
+            "ru": "Филадельфия лосось с красной икрой 8 шт, Филадельфия угорь со стружкой угря 8 шт, Филадельфия тигровая креветка с авокадо 8 шт (24 шт всего)"
           },
           "price": 29,
           "weight": "",
-          "pieces": null,
+          "pieces": 24,
           "available": true,
-          "popular": true
+          "popular": true,
+          "image": "data/images/philadelphia.jpeg"
         },
         {
           "id": "set_007",
           "name": {
-            "en": "Vegan Futomaki Set",
-            "fr": "Plateau Futomaki Végétalien",
-            "uk": "Сет веганський футомак",
-            "ru": "Сет веганский футомак"
+            "en": "FUTOMAKI",
+            "fr": "FUTOMAKI",
+            "uk": "FUTOMAKI",
+            "ru": "FUTOMAKI"
           },
           "description": {
-            "en": "Vegan futomaki rolls",
-            "fr": "Futomaki végétaliens",
-            "uk": "Веганські футомакі роли",
-            "ru": "Веганские футомаки роллы"
+            "en": "Avocat Maki 8 pcs, Champignons Enoki Maki 8 pcs, Feuille de laitue+concombre+poivre Maki 8 pcs, Chuka Maki 8 pcs (32 pcs total)",
+            "fr": "Avocat Maki 8 pcs, Champignons Enoki Maki 8 pcs, Feuille de laitue+concombre+poivre Maki 8 pcs, Chuka Maki 8 pcs (32 pcs au total)",
+            "uk": "Макі авокадо 8 шт, Макі гриби еноки 8 шт, Макі салат+огірок+перець 8 шт, Макі чука 8 шт (32 шт всього)",
+            "ru": "Маки авокадо 8 шт, Маки грибы эноки 8 шт, Маки салат+огурец+перец 8 шт, Маки чука 8 шт (32 шт всего)"
           },
           "price": 22,
           "weight": "",
-          "pieces": null,
+          "pieces": 32,
           "available": true,
-          "popular": false
+          "popular": false,
+          "image": "data/images/futomaki.jpeg"
         },
         {
           "id": "set_008",
           "name": {
-            "en": "Baked Rolls",
-            "fr": "Rouleaux Grillés",
-            "uk": "Запечені роли",
-            "ru": "Запеченные роллы"
+            "en": "CUIT",
+            "fr": "CUIT",
+            "uk": "CUIT",
+            "ru": "CUIT"
           },
           "description": {
-            "en": "Baked rolls selection",
-            "fr": "Sélection de rouleaux grillés",
-            "uk": "Добірка запечених ролів",
-            "ru": "Подборка запеченных роллов"
+            "en": "Saumon 8 pcs, Crabe 8 pcs, Ananas 8 pcs (24 pcs total)",
+            "fr": "Saumon 8 pcs, Crabe 8 pcs, Ananas 8 pcs (24 pcs au total)",
+            "uk": "Лосось 8 шт, Краб 8 шт, Ананас 8 шт (24 шт всього)",
+            "ru": "Лосось 8 шт, Краб 8 шт, Ананас 8 шт (24 шт всего)"
           },
           "price": 25,
           "weight": "",
-          "pieces": null,
+          "pieces": 24,
           "available": true,
-          "popular": true
+          "popular": true,
+          "image": "data/images/cuit.jpeg"
         },
         {
           "id": "set_009",
           "name": {
-            "en": "Favorite Set",
-            "fr": "Plateau Favori",
-            "uk": "Сет Улюбленець",
-            "ru": "Сет Любимчик"
+            "en": "FAVORI",
+            "fr": "FAVORI",
+            "uk": "FAVORI",
+            "ru": "FAVORI"
           },
           "description": {
-            "en": "Our favorite rolls collection",
-            "fr": "Notre collection de rouleaux favoris",
-            "uk": "Наша улюблена колекція ролів",
-            "ru": "Наша любимая коллекция роллов"
+            "en": "Philadelphia saumon 8 pcs, Maki concombre 8 pcs, Gunkan crevette 2 pcs, Dragon vert 8 pcs, Tropical mangue-avocat 8 pcs, California poulet 8 pcs, Futomaki crabe 8 pcs, Anguille gratinée 8 pcs, Gratiné crevette 8 pcs (66 pcs total)",
+            "fr": "Philadelphia saumon 8 pcs, Maki concombre 8 pcs, Gunkan crevette 2 pcs, Dragon vert 8 pcs, Tropical mangue-avocat 8 pcs, California poulet 8 pcs, Futomaki crabe 8 pcs, Anguille gratinée 8 pcs, Gratiné crevette 8 pcs (66 pcs au total)",
+            "uk": "Філадельфія лосось 8 шт, Макі огірок 8 шт, Гункан креветка 2 шт, Дракон зелений 8 шт, Тропікал манго-авокадо 8 шт, Каліфорнія курка 8 шт, Футомакі краб 8 шт, Вугор гратіне 8 шт, Гратіне креветка 8 шт (66 шт всього)",
+            "ru": "Филадельфия лосось 8 шт, Маки огурец 8 шт, Гункан креветка 2 шт, Дракон зеленый 8 шт, Тропикал манго-авокадо 8 шт, Калифорния курица 8 шт, Футомаки краб 8 шт, Угорь гратине 8 шт, Гратине креветка 8 шт (66 шт всего)"
           },
           "price": 64,
           "weight": "",
-          "pieces": null,
+          "pieces": 66,
           "available": true,
-          "popular": true
+          "popular": true,
+          "image": "data/images/favori.jpeg"
         },
         {
           "id": "set_010",
           "name": {
-            "en": "Tokyo",
-            "fr": "Tokyo",
-            "uk": "Токіо",
-            "ru": "Tokyo"
+            "en": "TOKIO",
+            "fr": "TOKIO",
+            "uk": "TOKIO",
+            "ru": "TOKIO"
           },
           "description": {
-            "en": "Premium Tokyo set",
-            "fr": "Plateau Tokyo premium",
-            "uk": "Преміум сет Токіо",
-            "ru": "Премиум сет Токио"
+            "en": "Maki moules 4 pcs, Maki bébé calamar 4 pcs, California sésame tempura crevette 8 pcs, California saumon tobiko 8 pcs, Roll tempura crabe 8 pcs, Roll gratiné poulet 8 pcs, Nigiri 4 pcs (44 pcs total)",
+            "fr": "Maki moules 4 pcs, Maki bébé calamar 4 pcs, California sésame tempura crevette 8 pcs, California saumon tobiko 8 pcs, Roll tempura crabe 8 pcs, Roll gratiné poulet 8 pcs, Nigiri 4 pcs (44 pcs au total)",
+            "uk": "Макі мідії 4 шт, Макі бебі кальмар 4 шт, Каліфорнія кунжут темпура креветка 8 шт, Каліфорнія лосось тобіко 8 шт, Рол темпура краб 8 шт, Рол гратіне курка 8 шт, Нігірі 4 шт (44 шт всього)",
+            "ru": "Маки мидии 4 шт, Маки бэби кальмар 4 шт, Калифорния кунжут темпура креветка 8 шт, Калифорния лосось тобико 8 шт, Ролл темпура краб 8 шт, Ролл гратине курица 8 шт, Нигири 4 шт (44 шт всего)"
           },
           "price": 89,
           "weight": "",
-          "pieces": null,
+          "pieces": 44,
           "available": true,
-          "popular": true
+          "popular": true,
+          "image": "data/images/tokio.jpeg"
         },
         {
           "id": "set_011",
           "name": {
-            "en": "Golden",
-            "fr": "Golden",
-            "uk": "Golden",
-            "ru": "Golden"
+            "en": "GOLDEN",
+            "fr": "GOLDEN",
+            "uk": "GOLDEN",
+            "ru": "GOLDEN"
           },
           "description": {
-            "en": "Premium golden set",
-            "fr": "Plateau golden premium",
-            "uk": "Преміум сет Golden",
-            "ru": "Премиум сет Golden"
+            "en": "Futomaki poulpe 8 pcs, California moules-avocat 8 pcs, Futomaki poulet 8 pcs, Futomaki crabe 8 pcs, Philadelphia saumon 8 pcs, Nigiri saumon 8 pcs (48 pcs total)",
+            "fr": "Futomaki poulpe 8 pcs, California moules-avocat 8 pcs, Futomaki poulet 8 pcs, Futomaki crabe 8 pcs, Philadelphia saumon 8 pcs, Nigiri saumon 8 pcs (48 pcs au total)",
+            "uk": "Футомакі восьминіг 8 шт, Каліфорнія мідії-авокадо 8 шт, Футомакі курка 8 шт, Футомакі краб 8 шт, Філадельфія лосось 8 шт, Нігірі лосось 8 шт (48 шт всього)",
+            "ru": "Футомаки осьминог 8 шт, Калифорния мидии-авокадо 8 шт, Футомаки курица 8 шт, Футомаки краб 8 шт, Филадельфия лосось 8 шт, Нигири лосось 8 шт (48 шт всего)"
           },
           "price": 59,
           "weight": "",
-          "pieces": null,
+          "pieces": 48,
           "available": true,
-          "popular": false
+          "popular": false,
+          "image": "data/images/golden.jpeg"
         },
         {
           "id": "set_012",
           "name": {
-            "en": "Royal",
-            "fr": "Royal",
-            "uk": "Рояль",
-            "ru": "Рояль"
+            "en": "ROYAL",
+            "fr": "ROYAL",
+            "uk": "ROYAL",
+            "ru": "ROYAL"
           },
           "description": {
-            "en": "Royal sushi set",
-            "fr": "Plateau royal de sushi",
-            "uk": "Королівський суші сет",
-            "ru": "Королевский суши сет"
+            "en": "Roll spicy moules 8 pcs, Philadelphia saumon 8 pcs, Bonito thon 8 pcs, California crevette 8 pcs, Maki concombre 8 pcs, Roll fromage 8 pcs (48 pcs total)",
+            "fr": "Roll spicy moules 8 pcs, Philadelphia saumon 8 pcs, Bonito thon 8 pcs, California crevette 8 pcs, Maki concombre 8 pcs, Roll fromage 8 pcs (48 pcs au total)",
+            "uk": "Рол спайсі мідії 8 шт, Філадельфія лосось 8 шт, Боніто тунець 8 шт, Каліфорнія креветка 8 шт, Макі огірок 8 шт, Рол сир 8 шт (48 шт всього)",
+            "ru": "Ролл спайси мидии 8 шт, Филадельфия лосось 8 шт, Бонито тунец 8 шт, Калифорния креветка 8 шт, Маки огурец 8 шт, Ролл сыр 8 шт (48 шт всего)"
           },
           "price": 59,
           "weight": "",
-          "pieces": null,
+          "pieces": 48,
           "available": true,
-          "popular": false
+          "popular": false,
+          "image": "data/images/royal.jpeg"
         }
       ]
     }
