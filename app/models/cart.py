@@ -7,11 +7,11 @@ class CartItem(BaseModel):
 
     item_id: str
     name: str
-    price: int
+    price: float
     quantity: int
 
     @property
-    def subtotal(self) -> int:
+    def subtotal(self) -> float:
         """Calculate item subtotal"""
         return self.price * self.quantity
 
@@ -25,7 +25,7 @@ class Cart(BaseModel):
     updated_at: datetime = datetime.now()
 
     @property
-    def total(self) -> int:
+    def total(self) -> float:
         """Calculate cart total"""
         return sum(item.subtotal for item in self.items.values())
 
@@ -40,7 +40,7 @@ class Cart(BaseModel):
         return len(self.items) == 0
 
     def add_item(
-        self, item_id: str, name: str, price: int, quantity: int = 1
+        self, item_id: str, name: str, price: float, quantity: int = 1
     ) -> None:
         """Add item to cart or increase quantity"""
         if item_id in self.items:

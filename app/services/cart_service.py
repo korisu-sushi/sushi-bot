@@ -95,7 +95,7 @@ class CartService:
         return cart
 
     @staticmethod
-    async def get_cart_total(state: FSMContext, user_id: int) -> int:
+    async def get_cart_total(state: FSMContext, user_id: int) -> float:
         """Get cart total"""
         cart = await CartService.get_cart(state, user_id)
         return cart.total
