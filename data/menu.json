@@ -32,27 +32,6 @@
       "sort_order": 1,
       "items": [
         {
-          "id": "set_001",
-          "name": {
-            "en": "NIGIRI",
-            "fr": "NIGIRI",
-            "uk": "NIGIRI",
-            "ru": "NIGIRI"
-          },
-          "description": {
-            "en": "Saumon (Sake), Thon (Maguro), Anguille (Unagi), Crevette (Ebi), Saint-Jacques (Hotate), Tamago (omelette japonaise), Poulpe (Tako), Osminog (8 pcs)",
-            "fr": "Saumon (Sake), Thon (Maguro), Anguille (Unagi), Crevette (Ebi), Saint-Jacques (Hotate), Tamago (omelette japonaise), Poulpe (Tako), Osminog (8 pcs)",
-            "uk": "Лосось (Саке), Тунець (Магуро), Вугор (Унагі), Креветка (Ебі), Гребінець (Хотате), Тамаго (японський омлет), Восьминіг (Тако), Осьминог (8 шт)",
-            "ru": "Лосось (Саке), Тунец (Магуро), Угорь (Унаги), Креветка (Эби), Гребешок (Хотате), Тамаго (японский омлет), Осьминог (Тако), Осьминог (8 шт)"
-          },
-          "price": 18.5,
-          "weight": "",
-          "pieces": 8,
-          "available": true,
-          "popular": true,
-          "image": "data/images/nigiri.jpeg"
-        },
-        {
           "id": "set_002",
           "name": {
             "en": "GUNKAN",
@@ -112,7 +91,7 @@
           "weight": "",
           "pieces": 32,
           "available": true,
-          "popular": true,
+          "popular": false,
           "image": "data/images/maki.jpeg"
         },
         {
@@ -154,7 +133,7 @@
           "weight": "",
           "pieces": 24,
           "available": true,
-          "popular": true,
+          "popular": false,
           "image": "data/images/philadelphia.jpeg"
         },
         {
@@ -196,7 +175,7 @@
           "weight": "",
           "pieces": 24,
           "available": true,
-          "popular": true,
+          "popular": false,
           "image": "data/images/cuit.jpeg"
         },
         {
@@ -217,7 +196,7 @@
           "weight": "",
           "pieces": 66,
           "available": true,
-          "popular": true,
+          "popular": false,
           "image": "data/images/favori.jpeg"
         },
         {
@@ -238,7 +217,7 @@
           "weight": "",
           "pieces": 44,
           "available": true,
-          "popular": true,
+          "popular": false,
           "image": "data/images/tokio.jpeg"
         },
         {
@@ -282,6 +261,27 @@
           "available": true,
           "popular": false,
           "image": "data/images/royal.jpeg"
+        },
+        {
+          "id": "set_001",
+          "name": {
+            "en": "NIGIRI",
+            "fr": "NIGIRI",
+            "uk": "NIGIRI",
+            "ru": "NIGIRI"
+          },
+          "description": {
+            "en": "Saumon (Sake), Thon (Maguro), Anguille (Unagi), Crevette (Ebi), Saint-Jacques (Hotate), Tamago (omelette japonaise), Poulpe (Tako), Osminog (8 pcs)",
+            "fr": "Saumon (Sake), Thon (Maguro), Anguille (Unagi), Crevette (Ebi), Saint-Jacques (Hotate), Tamago (omelette japonaise), Poulpe (Tako), Osminog (8 pcs)",
+            "uk": "Лосось (Саке), Тунець (Магуро), Вугор (Унагі), Креветка (Ебі), Гребінець (Хотате), Тамаго (японський омлет), Восьминіг (Тако), Осьминог (8 шт)",
+            "ru": "Лосось (Саке), Тунец (Магуро), Угорь (Унаги), Креветка (Эби), Гребешок (Хотате), Тамаго (японский омлет), Осьминог (Тако), Осьминог (8 шт)"
+          },
+          "price": 18.5,
+          "weight": "",
+          "pieces": 8,
+          "available": true,
+          "popular": false,
+          "image": "data/images/nigiri.jpeg"
         }
       ]
     }
