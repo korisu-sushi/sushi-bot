@@ -212,7 +212,7 @@ async def process_address(message: Message, state: FSMContext):
     )
 
 
-@router.callback_query(DaySelectionCallback.filter())
+@router.callback_query(DaySelectionCallback.filter(), OrderState.waiting_for_delivery_day)
 async def process_day_selection(callback: CallbackQuery, callback_data: DaySelectionCallback, state: FSMContext):
     """Process delivery day selection"""
     lang = await get_user_lang(state)
@@ -235,7 +235,7 @@ async def process_day_selection(callback: CallbackQuery, callback_data: DaySelec
     await callback.answer()
 
 
-@router.callback_query(TimeSlotCallback.filter())
+@router.callback_query(TimeSlotCallback.filter(), OrderState.waiting_for_time_slot)
 async def process_time_slot_selection(callback: CallbackQuery, callback_data: TimeSlotCallback, state: FSMContext):
     """Process time slot selection"""
     lang = await get_user_lang(state)
