@@ -243,7 +243,9 @@ async def process_time_slot_selection(callback: CallbackQuery, callback_data: Ti
 
     # Get saved date
     selected_date = date.fromisoformat(data["selected_date"])
-    time_slot = callback_data.time
+    # Convert "1300" back to "13:00"
+    raw_time = callback_data.time
+    time_slot = f"{raw_time[:2]}:{raw_time[2:]}"
 
     # Format delivery time for display
     delivery_time = format_delivery_time(selected_date, time_slot, lang)

@@ -184,10 +184,12 @@ def get_time_slot_keyboard(selected_date: date, lang: str = "en") -> InlineKeybo
         for j in range(3):
             if i + j < len(available_slots):
                 slot = available_slots[i + j]
+                # Use slot without ":" for callback (e.g., "1300" instead of "13:00")
+                slot_callback = slot.replace(":", "")
                 row_buttons.append(
                     InlineKeyboardButton(
                         text=slot,
-                        callback_data=TimeSlotCallback(time=slot).pack(),
+                        callback_data=TimeSlotCallback(time=slot_callback).pack(),
                     )
                 )
         builder.row(*row_buttons)
