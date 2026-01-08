@@ -2,6 +2,7 @@ from aiogram import Router, F
 from aiogram.types import Message, CallbackQuery
 from aiogram.filters import CommandStart, Command
 from aiogram.fsm.context import FSMContext
+from aiogram.exceptions import TelegramBadRequest
 
 from app.keyboards.menu_kb import get_main_menu_keyboard, get_language_keyboard, get_contacts_keyboard
 from app.services.menu_service import MenuService
@@ -48,10 +49,13 @@ async def set_language(
         hours=restaurant.get_working_hours(lang),
     )
 
-    await callback.message.edit_text(
-        welcome_text,
-        reply_markup=get_main_menu_keyboard(lang),
-    )
+    try:
+        await callback.message.edit_text(
+            welcome_text,
+            reply_markup=get_main_menu_keyboard(lang),
+        )
+    except TelegramBadRequest:
+        pass
     await callback.answer()
 
 
@@ -59,10 +63,13 @@ async def set_language(
 async def change_language(callback: CallbackQuery, state: FSMContext):
     """Show language selection"""
     lang = await get_user_lang(state)
-    await callback.message.edit_text(
-        get_text("choose_language", lang),
-        reply_markup=get_language_keyboard(),
-    )
+    try:
+        await callback.message.edit_text(
+            get_text("choose_language", lang),
+            reply_markup=get_language_keyboard(),
+        )
+    except TelegramBadRequest:
+        pass
     await callback.answer()
 
 
@@ -114,7 +121,10 @@ async def back_to_main_menu(
 
     text = get_text("main_menu_text", lang, name=restaurant.get_name(lang))
 
-    await callback.message.edit_text(text, reply_markup=get_main_menu_keyboard(lang))
+    try:
+        await callback.message.edit_text(text, reply_markup=get_main_menu_keyboard(lang))
+    except TelegramBadRequest:
+        pass
     await callback.answer()
 
 
@@ -122,10 +132,13 @@ async def back_to_main_menu(
 async def show_help(callback: CallbackQuery, state: FSMContext):
     """Show help"""
     lang = await get_user_lang(state)
-    await callback.message.edit_text(
-        get_text("help_text", lang),
-        reply_markup=get_main_menu_keyboard(lang),
-    )
+    try:
+        await callback.message.edit_text(
+            get_text("help_text", lang),
+            reply_markup=get_main_menu_keyboard(lang),
+        )
+    except TelegramBadRequest:
+        pass
     await callback.answer()
 
 
@@ -150,15 +163,18 @@ async def show_contacts(
         currency=menu.currency,
     )
 
-    await callback.message.edit_text(
-        contacts_text,
-        reply_markup=get_contacts_keyboard(
-            phone=restaurant.phone,
-            instagram=restaurant.instagram,
-            address=restaurant.address,
-            lang=lang,
-        ),
-    )
+    try:
+        await callback.message.edit_text(
+            contacts_text,
+            reply_markup=get_contacts_keyboard(
+                phone=restaurant.phone,
+                instagram=restaurant.instagram,
+                address=restaurant.address,
+                lang=lang,
+            ),
+        )
+    except TelegramBadRequest:
+        pass
     await callback.answer()
 
 

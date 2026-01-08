@@ -2,6 +2,7 @@ import os
 from aiogram import Router, F
 from aiogram.types import CallbackQuery, FSInputFile, InputMediaPhoto
 from aiogram.fsm.context import FSMContext
+from aiogram.exceptions import TelegramBadRequest
 
 from app.filters.callback_data import (
     CategoryCallback,
@@ -37,9 +38,12 @@ async def show_menu(
 
     text = get_text("menu_title", lang)
 
-    await callback.message.edit_text(
-        text, reply_markup=get_categories_keyboard(menu, lang)
-    )
+    try:
+        await callback.message.edit_text(
+            text, reply_markup=get_categories_keyboard(menu, lang)
+        )
+    except TelegramBadRequest:
+        pass
     await callback.answer()
 
 
