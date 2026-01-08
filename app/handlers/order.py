@@ -1,16 +1,21 @@
 import re
+from datetime import date
 from aiogram import Router, F
 from aiogram.types import Message, CallbackQuery
 from aiogram.fsm.context import FSMContext
 
 from app.states.order_states import OrderState
-from app.filters.callback_data import OrderCallback
+from app.filters.callback_data import OrderCallback, DaySelectionCallback, TimeSlotCallback
 from app.keyboards.order_kb import (
     get_delivery_type_keyboard,
-    get_delivery_time_keyboard,
+    get_day_selection_keyboard,
+    get_time_slot_keyboard,
     get_skip_comment_keyboard,
     get_confirm_order_keyboard,
     get_order_complete_keyboard,
+    format_delivery_time,
+    format_date_label,
+    PARIS_TZ,
 )
 from app.keyboards.cart_kb import get_cart_keyboard
 from app.services.cart_service import CartService
@@ -19,6 +24,7 @@ from app.services.notification_service import NotificationService
 from app.models.order import Order, DeliveryType
 from app.i18n import get_text, DEFAULT_LANGUAGE
 from config import settings
+from datetime import datetime
 
 router = Router(name="order")
 
@@ -158,17 +164,17 @@ async def process_delivery_type(callback: CallbackQuery, state: FSMContext):
     delivery_type = callback.data.split(":")[1]
 
     if delivery_type == "pickup":
-        # Pickup - skip address
+        # Pickup - skip address, go to day selection
         await state.update_data(
             delivery_type=DeliveryType.PICKUP,
             delivery_address=None,
             delivery_fee=0,
         )
-        await state.set_state(OrderState.waiting_for_time)
+        await state.set_state(OrderState.waiting_for_delivery_day)
 
         await callback.message.edit_text(
-            get_text("choose_time", lang),
-            reply_markup=get_delivery_time_keyboard(lang),
+            get_text("select_delivery_day", lang),
+            reply_markup=get_day_selection_keyboard(lang),
         )
     else:
         # Delivery - ask for address
@@ -191,37 +197,56 @@ async def process_address(message: Message, state: FSMContext):
         return
 
     # Delivery fee is always charged for delivery orders
-    cart = await CartService.get_cart(state, message.from_user.id)
     delivery_fee = settings.delivery_fee
 
     await state.update_data(delivery_address=address, delivery_fee=delivery_fee)
-    await state.set_state(OrderState.waiting_for_time)
+    await state.set_state(OrderState.waiting_for_delivery_day)
 
     fee_text = ""
     if delivery_fee > 0:
         fee_text = f"\n\n{get_text('delivery_cost', lang, fee=delivery_fee, threshold=settings.free_delivery_threshold, currency='€')}"
 
     await message.answer(
-        f"{get_text('choose_time', lang)}{fee_text}",
-        reply_markup=get_delivery_time_keyboard(lang),
+        f"{get_text('select_delivery_day', lang)}{fee_text}",
+        reply_markup=get_day_selection_keyboard(lang),
     )
 
 
-@router.callback_query(F.data.startswith("delivery_time:"))
-async def process_delivery_time(callback: CallbackQuery, state: FSMContext):
-    """Process delivery time selection"""
+@router.callback_query(DaySelectionCallback.filter())
+async def process_day_selection(callback: CallbackQuery, callback_data: DaySelectionCallback, state: FSMContext):
+    """Process delivery day selection"""
     lang = await get_user_lang(state)
-    time_choice = callback.data.split(":")[1]
 
-    if time_choice == "custom":
-        # Ask user to enter custom date/time
-        await state.set_state(OrderState.waiting_for_custom_time)
-        await callback.message.edit_text(get_text("enter_custom_time", lang))
-        await callback.answer()
-        return
+    # Parse the selected date
+    selected_date = date.fromisoformat(callback_data.day)
+    today = datetime.now(PARIS_TZ).date()
 
-    # ASAP option
-    delivery_time = get_text("time_asap", lang)
+    # Format date for display
+    date_label = format_date_label(selected_date, lang, today)
+
+    # Save selected day
+    await state.update_data(selected_date=callback_data.day)
+    await state.set_state(OrderState.waiting_for_time_slot)
+
+    await callback.message.edit_text(
+        get_text("select_time_slot", lang, date=date_label),
+        reply_markup=get_time_slot_keyboard(selected_date, lang),
+    )
+    await callback.answer()
+
+
+@router.callback_query(TimeSlotCallback.filter())
+async def process_time_slot_selection(callback: CallbackQuery, callback_data: TimeSlotCallback, state: FSMContext):
+    """Process time slot selection"""
+    lang = await get_user_lang(state)
+    data = await state.get_data()
+
+    # Get saved date
+    selected_date = date.fromisoformat(data["selected_date"])
+    time_slot = callback_data.time
+
+    # Format delivery time for display
+    delivery_time = format_delivery_time(selected_date, time_slot, lang)
 
     await state.update_data(delivery_time=delivery_time)
     await state.set_state(OrderState.waiting_for_comment)
@@ -231,25 +256,6 @@ async def process_delivery_time(callback: CallbackQuery, state: FSMContext):
         reply_markup=get_skip_comment_keyboard(lang),
     )
     await callback.answer()
-
-
-@router.message(OrderState.waiting_for_custom_time)
-async def process_custom_time(message: Message, state: FSMContext):
-    """Process custom delivery time input"""
-    lang = await get_user_lang(state)
-    custom_time = message.text.strip()
-
-    if len(custom_time) < 3:
-        await message.answer(get_text("enter_custom_time", lang))
-        return
-
-    await state.update_data(delivery_time=custom_time)
-    await state.set_state(OrderState.waiting_for_comment)
-
-    await message.answer(
-        get_text("enter_comment", lang),
-        reply_markup=get_skip_comment_keyboard(lang),
-    )
 
 
 @router.callback_query(F.data == "skip_comment")
@@ -326,9 +332,10 @@ async def order_back(callback: CallbackQuery, state: FSMContext):
     """Go back in order flow"""
     lang = await get_user_lang(state)
     current_state = await state.get_state()
+    data = await state.get_data()
 
-    if current_state == OrderState.waiting_for_time:
-        data = await state.get_data()
+    if current_state == OrderState.waiting_for_delivery_day:
+        # Go back based on delivery type
         if data.get("delivery_type") == DeliveryType.PICKUP:
             # Go back to delivery type selection
             await state.set_state(OrderState.waiting_for_address)
@@ -340,12 +347,27 @@ async def order_back(callback: CallbackQuery, state: FSMContext):
             # Go back to address input
             await state.set_state(OrderState.waiting_for_address)
             await callback.message.edit_text(get_text("enter_address", lang))
-    elif current_state == OrderState.waiting_for_comment:
-        await state.set_state(OrderState.waiting_for_time)
+
+    elif current_state == OrderState.waiting_for_time_slot:
+        # Go back to day selection
+        await state.set_state(OrderState.waiting_for_delivery_day)
         await callback.message.edit_text(
-            get_text("choose_time", lang),
-            reply_markup=get_delivery_time_keyboard(lang),
+            get_text("select_delivery_day", lang),
+            reply_markup=get_day_selection_keyboard(lang),
         )
+
+    elif current_state == OrderState.waiting_for_comment:
+        # Go back to time slot selection
+        selected_date = date.fromisoformat(data["selected_date"])
+        today = datetime.now(PARIS_TZ).date()
+        date_label = format_date_label(selected_date, lang, today)
+
+        await state.set_state(OrderState.waiting_for_time_slot)
+        await callback.message.edit_text(
+            get_text("select_time_slot", lang, date=date_label),
+            reply_markup=get_time_slot_keyboard(selected_date, lang),
+        )
+
     else:
         # Default - back to cart
         cart = await CartService.get_cart(state, callback.from_user.id)

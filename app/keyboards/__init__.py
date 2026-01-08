@@ -7,7 +7,8 @@ from app.keyboards.menu_kb import (
 from app.keyboards.cart_kb import get_cart_keyboard
 from app.keyboards.order_kb import (
     get_delivery_type_keyboard,
-    get_delivery_time_keyboard,
+    get_day_selection_keyboard,
+    get_time_slot_keyboard,
     get_skip_comment_keyboard,
     get_confirm_order_keyboard,
 )
@@ -19,7 +20,8 @@ __all__ = [
     "get_item_detail_keyboard",
     "get_cart_keyboard",
     "get_delivery_type_keyboard",
-    "get_delivery_time_keyboard",
+    "get_day_selection_keyboard",
+    "get_time_slot_keyboard",
     "get_skip_comment_keyboard",
     "get_confirm_order_keyboard",
 ]

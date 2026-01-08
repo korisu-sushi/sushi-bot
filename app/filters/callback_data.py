@@ -39,3 +39,15 @@ class OrderCallback(CallbackData, prefix="order"):
     """Callback for order actions"""
 
     action: str  # "confirm", "cancel", "back"
+
+
+class DaySelectionCallback(CallbackData, prefix="day"):
+    """Callback for delivery day selection"""
+
+    day: str  # Format: "2025-01-09"
+
+
+class TimeSlotCallback(CallbackData, prefix="slot"):
+    """Callback for delivery time slot selection"""
+
+    time: str  # Format: "14:00"
