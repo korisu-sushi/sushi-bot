@@ -10,8 +10,8 @@ from app.i18n import get_text
 # Paris timezone for France
 PARIS_TZ = pytz.timezone("Europe/Paris")
 
-# Working days (0=Monday, 3=Thursday, 6=Sunday)
-WORKING_DAYS = [3, 4, 5, 6]  # Thu, Fri, Sat, Sun
+# Working days (0=Monday, 4=Friday, 6=Sunday)
+WORKING_DAYS = [4, 5, 6]  # Fri, Sat, Sun
 
 # Working hours
 WORKING_HOUR_START = 13
