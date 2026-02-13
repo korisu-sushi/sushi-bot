@@ -72,7 +72,10 @@ async def show_category_items(
 
     # If current message is a photo, delete and send new text message
     if callback.message.photo:
-        await callback.message.delete()
+        try:
+            await callback.message.delete()
+        except TelegramBadRequest:
+            pass
         await callback.message.answer(text, reply_markup=keyboard)
     else:
         await callback.message.edit_text(text, reply_markup=keyboard)
@@ -131,7 +134,10 @@ async def show_item_detail(
     # Check if item has image
     if item.image and os.path.exists(item.image):
         # Delete old message and send photo
-        await callback.message.delete()
+        try:
+            await callback.message.delete()
+        except TelegramBadRequest:
+            pass
         photo = FSInputFile(item.image)
         await callback.message.answer_photo(
             photo=photo,
@@ -248,7 +254,10 @@ async def add_to_cart(
 
         # If current message is a photo, delete and send new text message
         if callback.message.photo:
-            await callback.message.delete()
+            try:
+                await callback.message.delete()
+            except TelegramBadRequest:
+                pass
             await callback.message.answer(text, reply_markup=keyboard)
         else:
             await callback.message.edit_text(text, reply_markup=keyboard)
@@ -258,7 +267,10 @@ async def add_to_cart(
         keyboard = get_categories_keyboard(menu, lang)
 
         if callback.message.photo:
-            await callback.message.delete()
+            try:
+                await callback.message.delete()
+            except TelegramBadRequest:
+                pass
             await callback.message.answer(text, reply_markup=keyboard)
         else:
             await callback.message.edit_text(text, reply_markup=keyboard)
